@@ -1,0 +1,17 @@
+/* Policies.css */
+
+.go-back-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .go-back-button:hover {
+    background-color: #0056b3;
+  }
+  
