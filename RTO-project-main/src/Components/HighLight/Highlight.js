@@ -3,22 +3,26 @@
 import React from 'react';
 import './Highlight.css';
 import { Link } from 'react-router-dom';
-import { BsCurrencyRupee } from 'react-icons/bs';
-import { AiOutlineCar } from 'react-icons/ai';
-import { HiOutlineUserGroup } from 'react-icons/hi';
+import { FaCar } from "react-icons/fa";
+import { FcRules } from "react-icons/fc";
+import { GiIndiaGate } from "react-icons/gi";
+import { FaMapMarkedAlt } from "react-icons/fa";
 
 const Highlight = () => {
   return (
     <>
+      <div className="header">
+        <h1>RTO Services</h1>
+      </div>
       <div className="container">
         <Link to="/carPlateChecker" className="left-container-link">
           <div className="left">
             <div className="left-inner">
               <div className="icon">
-                <BsCurrencyRupee />
+                <FaCar />
               </div>
-              <div className="headline">Offer's you Best Fare</div>
-              <div className="desc">Specify a ride fare and accept a suitable offer</div>
+              <div className="headline">Odd-Even Vehicle Compliance Checker</div>
+              <div className="desc">Traffic regulation strategy that checks the compliance of a vehicle to odd-even scheme</div>
             </div>
           </div>
         </Link>
@@ -27,10 +31,10 @@ const Highlight = () => {
           <div className="center">
             <div className="left-inner">
               <div className="icon">
-                <AiOutlineCar />
+                <FcRules />
               </div>
-              <div className="headline">Choose a driver</div>
-              <div className="desc">You see the driver's rating and number of rides before you accept the offer</div>
+              <div className="headline">Acts, Policies & Rules</div>
+              <div className="desc">This module provides users with detailed information about common regional transportation options</div>
             </div>
           </div>
         </Link>
@@ -39,10 +43,10 @@ const Highlight = () => {
           <div className="right">
             <div className="left-inner">
               <div className="icon">
-                <HiOutlineUserGroup />
+                <GiIndiaGate />
               </div>
-              <div className="headline">Explore State Selection</div>
-              <div className="desc">Choose your state and explore RTO codes</div>
+              <div className="headline">RTO Code</div>
+              <div className="desc">Provide users with the specific RTO code corresponding to their selected state or region</div>
             </div>
           </div>
         </Link>
@@ -51,9 +55,9 @@ const Highlight = () => {
           <div className="extreme-right">
             <div className="left-inner">
               {/* Add icon for the extreme right container */}
-              <div className="icon"> {/* Add your icon component here */}</div>
-              <div className="headline">Your Custom Container</div>
-              <div className="desc">Your custom description</div>
+              <div className="icon"> <FaMapMarkedAlt /></div>
+              <div className="headline">Route Mapper Module</div>
+              <div className="desc">Users input their destination and pickup points for a convenient and efficient route representation</div>
             </div>
           </div>
         </Link>

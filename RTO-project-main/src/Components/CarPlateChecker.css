@@ -1,12 +1,21 @@
-/* CarPlateChecker.css */
+CarPlateChecker.css
 
-.car-plate-container {
+.frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0; /* Set the background color of the frame */
+  }
+  
+  .car-plate-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: #cbfc83;
+    background: linear-gradient(to bottom right,#55e3df, #cbfc83, #92f300); /* Gradient from #cbfc83 to #92f300 */
+    width: 900px; /* Set the width to make it a square box */
+    height: 900px; /* Set the height to make it a square box */
     padding: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -18,7 +27,7 @@
   }
   
   .input {
-    width: 350px;
+    width: 250px; /* Adjust width to fit inside the square box */
     margin: 20px 0;
     padding: 12px;
     font-size: 16px;
@@ -68,4 +77,6 @@
   .link:hover {
     color: #0056b3;
   }
+  
+
   
