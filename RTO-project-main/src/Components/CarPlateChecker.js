@@ -10,9 +10,22 @@ const CarPlateChecker = () => {
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [currentDate, setCurrentDate] = useState("");
 
   const handlePlateNumberChange = (event) => {
     setPlateNumber(event.target.value);
+  };
+
+  const getCurrentDate = () => {
+    const currentDate = new Date();
+    setCurrentDate(
+      `${currentDate.toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })}`
+    );
   };
 
   const checkPlateNumber = () => {
@@ -24,11 +37,23 @@ const CarPlateChecker = () => {
 
     setLoading(true);
 
+    getCurrentDate();
+
     // Simulate an API request or any asynchronous operation
     setTimeout(() => {
-      const lastTwoDigits = parseInt(plateNumber.slice(-2), 10);
-      const isEven = lastTwoDigits % 2 === 0;
-      setResult(isEven ? "Even Scheme" : "Odd Scheme");
+      const lastDigit = parseInt(plateNumber.slice(-1), 10);
+      const isEvenPlateNumber = lastDigit % 2 === 0;
+      const isEvenDate = currentDate && new Date(currentDate).getDate() % 2 === 0;
+
+      const schemeResult =
+        isEvenPlateNumber ? "Even Scheme" : "Odd Scheme";
+
+      if ((isEvenPlateNumber && isEvenDate) || (!isEvenPlateNumber && !isEvenDate)) {
+        setResult(`Your car follows ${schemeResult} and can be on the road today.`);
+      } else {
+        setResult(`Your car follows ${schemeResult} and cannot be on the road today.`);
+      }
+
       setLoading(false);
       setError("");
     }, 1000);
@@ -37,7 +62,10 @@ const CarPlateChecker = () => {
   return (
     <div className="car-plate-container">
       <Typography variant="h4" className="heading">
-        Car Plate Number Checker
+        ODD-EVEN VEHICLE COMPILANCE CHECKER
+      </Typography>
+      <Typography variant="body1" className="date-info">
+        {currentDate}
       </Typography>
       <TextField
         type="text"

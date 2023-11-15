@@ -1,14 +1,15 @@
 // StateSelection.js
 
 import React, { useState } from "react";
-import "./StateSelection.css"; // Create a CSS file for styling
+import { Link } from "react-router-dom";
+import "./StateSelection.css";
 
 const StateSelection = () => {
   const [selectedState, setSelectedState] = useState("");
   const [rtoCode, setRtoCode] = useState("");
 
-  // Define the RTO locations with their codes
   const rtoLocations = {
+   
     "Andhra Pradesh": "AP",
     "Arunachal Pradesh": "AR",
     "Assam":	"AS",	"Bihar":	"BR",
@@ -24,7 +25,14 @@ const StateSelection = () => {
     "Sikkim":	"SK",	"Tamil Nadu":	"TN",
     "Tripura":	"TR",	"Uttar Pradesh":	"UP",
     "Uttarakhand":	"UK",	"West Bengal":	"WB",
-    "Telangana":	"TS"	
+    "Telangana":	"TS",
+    "Andaman and Nicobar Islands":	"AN",
+"Chandigarh":	"CH",
+"Dadra and nagar Haveli":	"DN",
+"Daman and Diu":	"DD",
+"Lakshadweep":	"LD",
+"Delhi":	"DL",
+"Puducherry"	:"PY"
     // ... (add all other states)
   };
 
@@ -35,14 +43,16 @@ const StateSelection = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Fetch the corresponding RTO code from the map
     const code = rtoLocations[selectedState] || "";
     setRtoCode(code);
   };
 
   return (
     <div className="state-selection-container">
-      <h2>State Selection</h2>
+      <div className="header">
+        <h2>Explore RTO Codes</h2>
+        <p>Find the RTO code for your state</p>
+      </div>
       <form onSubmit={handleSubmit}>
         <label>
           Select State:
@@ -62,6 +72,9 @@ const StateSelection = () => {
         <button type="submit">Get RTO Code</button>
       </form>
       {rtoCode && <p className="rto-code">RTO Code: {rtoCode}</p>}
+      <div className="go-back-link">
+        <Link to="/home">Go Back to Home</Link>
+      </div>
     </div>
   );
 };
